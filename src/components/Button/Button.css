@@ -1,3 +1,11 @@
+:root{
+    --cor-principal: rgba(5, 0, 3, 1);
+    --cor-secundaria-1:#55B2F0;
+    --cor-secundaria-2:#F04E4D;
+    --cor-secundaria-3:#F0EE54;
+    --cor-detalhe-1: #1E6B9E;
+}
+
 button{
     width: 19.688rem;
     height: 4.438rem;
@@ -11,7 +19,7 @@ button{
     font-size: 24px;
     font-weight: 600;
     
-    background: linear-gradient(90deg, #496940, #93842F);
+    background-color: var(--cor-secundaria-1);
 }
 
 button:active {
@@ -20,4 +28,5 @@ button:active {
 
 button:hover{
     cursor: pointer;
+    background-color: var(--cor-detalhe-1);
 }

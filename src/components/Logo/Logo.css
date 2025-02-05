@@ -1,0 +1,15 @@
+:root{
+    --cor-principal: rgba(5, 0, 3, 1);
+    --cor-secundaria-1:#55B2F0;
+    --cor-secundaria-2:#F04E4D;
+    --cor-secundaria-3:#F0EE54;
+    --cor-fundo:#F2F3FB;
+}
+
+.logo{
+    fill: white;
+    align-self: center;
+    margin-left: 2rem;
+    width: 64px;
+    height: 64px;
+}

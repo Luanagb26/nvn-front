@@ -1,3 +1,10 @@
+:root{
+    --cor-principal: rgba(5, 0, 3, 1);
+    --cor-secundaria-1:#55B2F0;
+    --cor-secundaria-2:#F04E4D;
+    --cor-secundaria-3:#F0EE54;
+}
+
 .navBar{
     display: flex;
     justify-content: space-between;
@@ -9,7 +16,7 @@
     height: 8.188rem;
 
     border-bottom: solid 4px transparent;
-    border-image-source: linear-gradient(90deg, #496940, #93842F);
+    border-image: linear-gradient(45deg, var(--cor-secundaria-1), var(--cor-secundaria-2), var(--cor-secundaria-3));
     border-image-slice: 1;
 }
 .logo-container{
@@ -20,11 +27,11 @@
     font-family: "Madimi One", serif;
     font-size: 32px;
 }
-.logo-container img{
+.logo-container svg{
+    fill: white;
     align-self: center;
     margin-left: 2rem;
-    width: 64px;
-    height: 64px;
+    
 }
 
 .link-container{
@@ -70,21 +77,7 @@
     text-decoration: none;
     
     border-radius: 30px;
-    background:linear-gradient(90deg, #496940, #93842F);
+    background-color: var(--cor-secundaria-1);
     overflow: hidden;
 }
 
-.link::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    padding: 4px; /* Espessura da borda */
-    border-radius: 30px; /* Mesma borda arredondada */
-    background: linear-gradient(90deg, #496940, #93842F);
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none; /* Evita interferência com cliques */
-}

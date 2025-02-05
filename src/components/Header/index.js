@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
+import Logo from '../Logo';
 
 const Header = () => {
     const location = useLocation();
@@ -7,8 +8,8 @@ const Header = () => {
         <>
             <nav className='navBar'>
                 <div className='logo-container'>
-                    <img src='/assets/galinha.png' alt='logo_vitoria' />
-                    <h1>NaVi</h1>
+                    <Logo/>
+                    <h1>NaViNi</h1>
                 </div>
                 <div className='link-container'>
                     <Link

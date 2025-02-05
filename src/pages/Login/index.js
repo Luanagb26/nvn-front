@@ -1,8 +1,11 @@
+import Banner from '../../components/Banner';
 import Form from '../../components/Form';
+import './Login.css';
 
 export default function Login() {
     return (
-        <div>
+        <main>
+            <Banner/>
             <Form
                 titulo='Login'
                 funcao='Entrar'
@@ -13,7 +16,7 @@ export default function Login() {
                     { nome: "Senha", type: "password" },
                 ]}
             />
-        </div>
+        </main>
 
     )
 }

@@ -1,8 +1,11 @@
+import Banner from "../../components/Banner";
 import Form from "../../components/Form";
+import './Register.css'
 
 export default function Register() {
     return (
-        <div>
+        <main>
+            <Banner/>
             <Form
                 titulo='Cadastro'
                 funcao='Cadastrar-se'
@@ -15,6 +18,6 @@ export default function Register() {
                     { nome: "Confirmar Senha", type: "password" }
                 ]}
             />
-        </div>
+        </main>
     )
 }

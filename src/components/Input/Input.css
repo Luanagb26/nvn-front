@@ -1,3 +1,10 @@
+:root{
+    --cor-principal: rgba(5, 0, 3, 1);
+    --cor-secundaria-1:#55B2F0;
+    --cor-secundaria-2:#F04E4D;
+    --cor-secundaria-3:#F0EE54;
+}
+
 .input-container{
     display: flex;
     flex-direction: column;
@@ -5,7 +12,7 @@
     
 }
 .input-label{
-    color: white;
+    color: var(--cor-principal);
     font-family: 'Source Sans 3', sans-serif;
     font-size: 24px;
     font-weight: 600;
