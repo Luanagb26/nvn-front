@@ -1,0 +1,23 @@
+button{
+    width: 19.688rem;
+    height: 4.438rem;
+    border-radius: 30px;
+    border: none;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    color: white;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    
+    background: linear-gradient(90deg, #496940, #93842F);
+}
+
+button:active {
+    transform: scale(0.95); /* Reduz ligeiramente o tamanho */
+}
+
+button:hover{
+    cursor: pointer;
+}
