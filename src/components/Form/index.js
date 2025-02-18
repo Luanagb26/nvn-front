@@ -4,9 +4,9 @@ import './Form.css';
 import { Link } from 'react-router-dom';
 
 
-const Form = ({ titulo, funcao, linkAlternativo, textoLink, campos }) => {
+const Form = ({ titulo, funcao, linkAlternativo, textoLink, campos, onSubmit }) => {
     return (
-        <form className='form'>
+        <form className='form' onSubmit={onSubmit}>
             <h1 className='form-titulo'>{titulo}</h1>
             <div className='campo-container'>
                 {campos.map((campo, index) => (
@@ -16,7 +16,7 @@ const Form = ({ titulo, funcao, linkAlternativo, textoLink, campos }) => {
             </div>
 
             <div className='button-container'>
-                <Button>{funcao}</Button>
+                <Button type="submit">{funcao}</Button>
                 <Link to={linkAlternativo} className='link-alternativo'>{textoLink}</Link>
             </div>
         </form>
