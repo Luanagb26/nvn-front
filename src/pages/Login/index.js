@@ -12,12 +12,13 @@ export default function Login() {
         const response = await login(event.target[0].value, event.target[1].value);
         console.log(event.target[0].value, event.target[1].value)
         const data = await response.json();
-        console.log(response)
+        localStorage.setItem('token', data.token);
+        console.log("token console", data.token)
+        console.log("token localstorage: " + localStorage.getItem('token'))
 
         switch (response.status) {
             case statusCodes.OK:
                 alert(data.message);
-                localStorage.setItem('token', data.access_token);
                 window.location.href = '/home';
                 break;
             case statusCodes.UNAUTHORIZED:

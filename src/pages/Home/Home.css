@@ -1,0 +1,35 @@
+.container {
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.lista-livros {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+    width: 70%;
+}
+
+.lista-livros li {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.lista-livros li:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-adicionar {
+    align-self: flex-end;
+}

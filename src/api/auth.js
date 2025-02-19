@@ -7,6 +7,8 @@ export const login = async (cpf, password) => {
         body: JSON.stringify({ cpf, password })
     });
 
+    
+
     return response;
     console.log(response)
 }
