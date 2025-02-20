@@ -13,13 +13,13 @@ export const login = async (cpf, password) => {
     console.log(response)
 }
 
-export const register = async (name, cpf, password) => {
+export const register = async (name, email, cpf, password) => {
     const response = await fetch(`${process.env.REACT_APP_URL_API}/auth/register`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, cpf, password })
+        body: JSON.stringify({ name, email, cpf, password })
     });
 
    return response;

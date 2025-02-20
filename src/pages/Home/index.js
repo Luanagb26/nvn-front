@@ -27,7 +27,7 @@ const excluirLivro = async (id) => {
 };
 
 // Função para atualizar um livro
-const atualizarLivro = async (id, title, description) => {
+const atualizarLivro = async (id, title, author, genre, pages) => {
     const token = localStorage.getItem('token');
     try {
         const response = await fetch(`${process.env.REACT_APP_URL_API}/books/${id}`, {
@@ -36,7 +36,7 @@ const atualizarLivro = async (id, title, description) => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({ title, description })
+            body: JSON.stringify({ title, author, genre, pages })
         });
 
         if (response.status === statusCodes.OK) {
@@ -59,7 +59,9 @@ export default function Home() {
     const [livroSelecionado, setLivroSelecionado] = useState(null);
     const [modoEdicao, setModoEdicao] = useState(false);
     const [titleEditado, setTitleEditado] = useState('');
-    const [descriptionEditada, setDescriptionEditada] = useState('');
+    const [autorEditado, setAutorEditado] = useState('');
+    const [generoEditado, setGeneroEditado] = useState('');
+    const [paginasEditada, setPaginasEditada] = useState(0);
 
 
 
@@ -99,7 +101,13 @@ export default function Home() {
       const onSubmit = async (event) => {
             event.preventDefault();
     
-            const response = await salvarLivro( event.target[0].value, event.target[1].value);
+            const response = await salvarLivro( 
+                event.target[0].value, 
+                event.target[1].value, 
+                event.target[2].value,
+                event.target[3].value,
+            );
+
             const data = await response.json();
             
             console.log(response)
@@ -130,7 +138,10 @@ export default function Home() {
         const abrirDetalhesLivro = (livro) => {
             setLivroSelecionado(livro);
             setTitleEditado(livro.title);
-            setDescriptionEditada(livro.description);
+            setAutorEditado(livro.author);
+            setGeneroEditado(livro.genre);
+            setPaginasEditada(livro.pages);
+        
         };
     
         const fecharDetalhesLivro = () => {
@@ -152,7 +163,7 @@ export default function Home() {
     
         const handleSalvarEdicao = async () => {
             if (livroSelecionado) {
-                await atualizarLivro(livroSelecionado.id, titleEditado, descriptionEditada);
+                await atualizarLivro(livroSelecionado.id, titleEditado, autorEditado, generoEditado, paginasEditada);
                 buscarLivros();
                 fecharDetalhesLivro();
             }
@@ -171,7 +182,7 @@ export default function Home() {
                 {livros.map((livro, index) => (
                     <li key={index} onClick={() => abrirDetalhesLivro(livro)}>
                         <h2>{livro.title}</h2>
-                        <p>{livro.description}</p>
+                        <p>{livro.author}</p>
                     </li>
                 ))}
             </ul>
@@ -185,7 +196,9 @@ export default function Home() {
                 linkAlternativo="/"
                 campos={[
                     { nome: "Titulo", type: "text" },
-                    { nome: "Descricao", type: "text" }
+                    { nome: "Autor", type: "text" },
+                    { nome: "Gênero", type: "text" },
+                    { nome: "Paginas", type: "number" },
                 ]}
                 onSubmit={onSubmit}
             />
@@ -204,16 +217,30 @@ export default function Home() {
                                 margin="normal"
                             />
                             <TextField
-                                label="Descrição"
-                                value={descriptionEditada}
-                                onChange={(e) => setDescriptionEditada(e.target.value)}
+                                label="Autor"
+                                value={autorEditado}
+                                onChange={(e) => setAutorEditado(e.target.value)}
+                                fullWidth
+                                margin="normal"
+                            />
+                            <TextField
+                                label="Gênero"
+                                value={generoEditado}
+                                onChange={(e) => setGeneroEditado(e.target.value)}
+                                fullWidth
+                                margin="normal"
+                            />
+                            <TextField
+                                label="Número de páginas"
+                                value={paginasEditada}
+                                onChange={(e) => setPaginasEditada(e.target.value)}
                                 fullWidth
                                 margin="normal"
                             />
                         </>
                     ) : (
                         <>
-                            <p>{livroSelecionado?.description}</p>
+                            <p>{livroSelecionado?.author}</p>
                         </>
                     )}
                 </DialogContent>

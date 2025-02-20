@@ -9,12 +9,12 @@ export default function Register() {
     const onSubmit = async (event) => {
         event.preventDefault();
 
-        if (event.target[2].value !== event.target[3].value) {
+        if (event.target[3].value !== event.target[4].value) {
             alert('As senhas não coincidem');
             return;
         }
 
-        const response = await register(event.target[0].value, event.target[1].value, event.target[2].value);
+        const response = await register(event.target[0].value, event.target[1].value, event.target[2].value, event.target[3].value);
         const data = await response.json();
         
         console.log(response)
@@ -40,6 +40,7 @@ export default function Register() {
                 textoLink="Já tem conta? Entrar"
                 campos={[
                     { nome: "Nome", type: "text" },
+                    { nome: "Email", type: "text" },
                     { nome: "CPF", type: "CPF" },
                     { nome: "Senha", type: "password" },
                     { nome: "Confirmar Senha", type: "password" }
